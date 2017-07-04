@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style: none;
+		}
+		.zhezhao{
+			width:100%;
+			background: #000;
+			opacity: 0.6;
+			display: none;
+			position: absolute;
+		}
+		.alertbox{
+			width:0px;
+			height:0px;
+			border:1px solid #fff;
+			border-radius: 10px;
+			position: fixed;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			margin:auto;
+			background: #fff;
+			z-index: 9999;
+			overflow: hidden;
+			line-height: 50px;
+			text-align: center;
+		}
+		.alertbox p{
+			font-size:20px;
+			font-weight: bold;
+			background: #555;
+			color:#fff;
+		}
+		.alertbox span{
+			width:50%;
+			display: inline-block;
+			height:50px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body style="height:2000px">
+	<ul id="box">
+		<li>商品1 <button>删除</button></li>
+		<li>商品2 <button>删除</button></li>
+		<li>商品3 <button>删除</button></li>
+		<li>商品4 <button>删除</button></li>
+		<li>商品5 <button>删除</button></li>
+		<li>商品6 <button>删除</button></li>
+	</ul>
+
+	<script src="js/jquery-1.8.3.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+		$("#box").on('click','button',function(){
+			var pare = $(this).parent();
+
+			$.box({
+				content : "<p>确认删除吗？</p>",
+				method : function(){
+					pare.remove();
+				}
+			})
+		})
+	</script>
+</body>
+</html>
